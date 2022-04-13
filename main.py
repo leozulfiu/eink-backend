@@ -15,6 +15,7 @@ forecast_url = "https://api.srgssr.ch/srf-meteo/forecast/47.3868,8.4846"
 load_dotenv()
 client_id = os.environ.get('client_id')
 client_secret = os.environ.get('client_secret')
+db_secret = os.environ.get('db_secret')
 environment = os.environ.get('environment')
 
 
@@ -33,9 +34,6 @@ async def root():
         }
 
         return json.dumps(response)
-        # -> ['day'] gives an array
-        # Day, Max Temp, Min Temp, Icon Id, Regen
-        #      TX_C, TN_C, SYMBOL_CODE, RRR_MM
 
 
 async def fetch_forecast(client):
@@ -54,7 +52,16 @@ async def fetch_forecast(client):
 
 
 def parse_forecast(forecast_response):
-    return []
+    forecast = []
+    for entry in forecast_response['day'][:6]:
+        forecast.append({
+            'day': datetime.fromisoformat(entry['local_date_time']).strftime('%a'),
+            'max_temp': str(entry['TX_C']),
+            'min_temp': str(entry['TN_C']),
+            'icon_id': str(entry['SYMBOL_CODE']),
+            'rain': str(entry['RRR_MM']) + ' mm'
+        })
+    return forecast
 
 
 def read_garbage_collections(limit=2):
