@@ -1,16 +1,20 @@
 import base64
 import os
 import json
+import sqlite3
+
 import httpx as httpx
 import uvicorn
 from datetime import datetime
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from icalendar import Calendar
+from cryptography.fernet import Fernet
 
 app = FastAPI()
-access_token_url = "https://api.srgssr.ch/oauth/v1/accesstoken?grant_type=client_credentials"
-forecast_url = "https://api.srgssr.ch/srf-meteo/forecast/47.3868,8.4846"
+access_token_url = 'https://api.srgssr.ch/oauth/v1/accesstoken?grant_type=client_credentials'
+forecast_url = 'https://api.srgssr.ch/srf-meteo/forecast/47.3868,8.4846'
+database_path = 'birthdays.db'
 
 load_dotenv()
 client_id = os.environ.get('client_id')
@@ -19,7 +23,7 @@ db_secret = os.environ.get('db_secret')
 environment = os.environ.get('environment')
 
 
-@app.get("/")
+@app.get('/')
 async def root():
     with httpx.Client() as client:
         forecast = parse_forecast(await fetch_forecast(client))
@@ -27,7 +31,7 @@ async def root():
         birthdays = read_birthdays()
 
         response = {
-            'date': datetime.now().astimezone().strftime("%a, %d.%m.%Y"),
+            'date': datetime.now().astimezone().strftime('%a, %d.%m.%Y'),
             'forecast': forecast,
             'garbage_collections': garbage_collections,
             'birthdays': birthdays,
@@ -69,7 +73,7 @@ def read_garbage_collections(limit=2):
     cal = Calendar.from_ical(erz_calendar.read())
     collections = []
     for component in cal.walk():
-        if component.name == "VEVENT":
+        if component.name == 'VEVENT':
             collections.append({
                 'type': component.get('summary').split(': ')[1],
                 # + 1 because we want to round up the day which already has begun
@@ -86,8 +90,27 @@ def read_garbage_collections(limit=2):
 
 
 def read_birthdays(limit=3):
-    return []
+    conn = sqlite3.connect(database_path)
+    crsr = conn.cursor()
+    crsr.execute('SELECT * FROM BIRTHDAY')
+    rows = crsr.fetchall()
+    conn.commit()
+    conn.close()
+
+    birthdays = []
+    for row in rows:
+        birthdays.append({
+            'name': decrypt(row['name']),
+            'birthdate': decrypt(row['birthdate'])
+        })
+    return birthdays[:limit]
 
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+def decrypt(encrypted_value):
+    fer = Fernet(db_secret)
+    decrypt_value = fer.decrypt(encrypted_value)
+    return decrypt_value.decode()
+
+
+if __name__ == '__main__':
+    uvicorn.run(app, host='0.0.0.0', port=8000)
