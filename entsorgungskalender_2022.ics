@@ -1,0 +1,450 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+METHOD:PUBLISH
+PRODID:ch.stzh.cq.commons.ics.Event_1.3 - This text data is UTF-8-encoded (ics does not define a formal encoding declaration, utf-8 is recommended as default though) and was created on Wed Apr 13 13:21:30 CEST 2022 *** WARNING ***: EDITING THIS FILE MAY BREAK THE ICS FORMAT. IF EDITING, KEEP ENCODING UTF-8
+X-WR-CALNAME:ERZ-Entsorgungskalender
+BEGIN:VEVENT
+UID:1672291800000_1672295400000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20221229T053000Z
+DTEND:20221229T063000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1671687000000_1671690600000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20221222T053000Z
+DTEND:20221222T063000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1671082200000_1671085800000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20221215T053000Z
+DTEND:20221215T063000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1670477400000_1670481000000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20221208T053000Z
+DTEND:20221208T063000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1669872600000_1669876200000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20221201T053000Z
+DTEND:20221201T063000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1669267800000_1669271400000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20221124T053000Z
+DTEND:20221124T063000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1668663000000_1668666600000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20221117T053000Z
+DTEND:20221117T063000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1668058200000_1668061800000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20221110T053000Z
+DTEND:20221110T063000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1667453400000_1667457000000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20221103T053000Z
+DTEND:20221103T063000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1666845000000_1666848600000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20221027T043000Z
+DTEND:20221027T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1666240200000_1666243800000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20221020T043000Z
+DTEND:20221020T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1665635400000_1665639000000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20221013T043000Z
+DTEND:20221013T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1665030600000_1665034200000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20221006T043000Z
+DTEND:20221006T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1664425800000_1664429400000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220929T043000Z
+DTEND:20220929T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1663821000000_1663824600000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220922T043000Z
+DTEND:20220922T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1663216200000_1663219800000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220915T043000Z
+DTEND:20220915T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1662611400000_1662615000000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220908T043000Z
+DTEND:20220908T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1662006600000_1662010200000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220901T043000Z
+DTEND:20220901T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1661401800000_1661405400000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220825T043000Z
+DTEND:20220825T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1660797000000_1660800600000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220818T043000Z
+DTEND:20220818T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1660192200000_1660195800000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220811T043000Z
+DTEND:20220811T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1659587400000_1659591000000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220804T043000Z
+DTEND:20220804T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1658982600000_1658986200000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220728T043000Z
+DTEND:20220728T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1658377800000_1658381400000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220721T043000Z
+DTEND:20220721T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1657773000000_1657776600000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220714T043000Z
+DTEND:20220714T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1657168200000_1657171800000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220707T043000Z
+DTEND:20220707T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1656563400000_1656567000000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220630T043000Z
+DTEND:20220630T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1655958600000_1655962200000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220623T043000Z
+DTEND:20220623T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1655353800000_1655357400000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220616T043000Z
+DTEND:20220616T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1654749000000_1654752600000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220609T043000Z
+DTEND:20220609T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1654144200000_1654147800000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220602T043000Z
+DTEND:20220602T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1652934600000_1652938200000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220519T043000Z
+DTEND:20220519T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1652329800000_1652333400000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220512T043000Z
+DTEND:20220512T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1651725000000_1651728600000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220505T043000Z
+DTEND:20220505T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1651120200000_1651123800000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220428T043000Z
+DTEND:20220428T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1650515400000_1650519000000_ERZ_Abfuhr_Papier
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Papier
+DESCRIPTION;CHARSET=UTF-8:Papier\n\nDas gehört dazu: Buch ohne Deckel, Kuvert, Taschenbuch, Telefonbuch, Zeitschrift, Zeitung\n\nDas nicht: Buchdeckel, Karton, Papierschnipsel, Papiertragetasche, plastikbeschichtetes oder verschmutztes Papier, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen oder Kartonschachteln als Sammelbehälter\n\nMehr zum Thema: www.erz.ch/papier\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220421T043000Z
+DTEND:20220421T053000Z
+END:VEVENT
+BEGIN:VEVENT
+UID:1649910600000_1649914200000_ERZ_Abfuhr_Karton
+DTSTAMP:20220413T112115Z
+SUMMARY;CHARSET=UTF-8:ERZ Abfuhr: Karton
+DESCRIPTION;CHARSET=UTF-8:Karton\n\nDas gehört dazu: Früchtekarton, Gemüsekarton, Papiertragetasche (gefaltet), Postpaket, Schachtel, Verpackung, Waschmittelkarton (ohne Plastikgriff)\n\nDas nicht: Beschichteter oder verschmutzter Karton, Papier, Styropor, Tetrapak, Tiefkühlverpackung\n\nWie und wo: Am Sammeltag gefaltet, gebündelt und geschürt vor 7 Uhr an den Strassenrand; keine Papiertragetaschen als Sammelbehälter, weil sie bei Nässe und Wind auseinanderfallen\n\nMehr zum Thema: www.erz.ch/karton\n\n
+LOCATION;CHARSET=UTF-8:Dachslernstrasse 61, 8048 Zürich
+TRANSP:TRANSPARENT
+CLASS:PRIVATE
+STATUS:TENTATIVE
+DTSTART:20220414T043000Z
+DTEND:20220414T053000Z
+END:VEVENT
+END:VCALENDAR

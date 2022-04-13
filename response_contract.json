@@ -1,0 +1,56 @@
+{
+  "forecast": [
+    {
+      "day": "So",
+      "max_temp": "12",
+      "min_temp": "1",
+      "icon_id": "-2",
+      "rain": "0.3mm"
+    },
+    {
+      "day": "Mo",
+      "max_temp": "17",
+      "min_temp": "0",
+      "icon_id": "-3",
+      "rain": "0.0mm"
+    },
+    {
+      "day": "Di",
+      "max_temp": "22",
+      "min_temp": "1",
+      "icon_id": "-1",
+      "rain": "0.0mm"
+    },
+    {
+      "day": "Mi",
+      "max_temp": "23",
+      "min_temp": "7",
+      "icon_id": "-3",
+      "rain": "0.0mm"
+    }
+  ],
+  "garbage_collections": [
+    {
+      "type": "Papier",
+      "when": "in 2 Tagen"
+    },
+    {
+      "type": "Karton",
+      "when": "in 8 Tagen"
+    }
+  ],
+  "birthdays": [
+    {
+      "name": "Bob",
+      "date": "26.05."
+    },
+    {
+      "name": "Alice",
+      "date": "20.07."
+    },
+    {
+      "name": "Charlie",
+      "date": "25.10."
+    }
+  ]
+}
