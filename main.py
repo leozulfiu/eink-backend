@@ -38,7 +38,7 @@ async def root():
             'birthdays': birthdays,
         }
 
-        return json.dumps(response)
+        return response
 
 
 async def fetch_forecast(client):
@@ -110,6 +110,7 @@ def read_birthdays(limit=3):
     birthdays = []
     for row in rows:
         birthdays.append({
+            'id': row[0],
             'name': decrypt(row[1]),
             'birthdate': decrypt(row[2])
         })
@@ -117,7 +118,7 @@ def read_birthdays(limit=3):
     return birthdays[:limit]
 
 
-@app.get('/new')
+@app.get('/api/new')
 async def new(name, birthdate):
     try:
         parsed_birthdate = datetime.strptime(birthdate, '%d.%m.%Y').date()
@@ -129,9 +130,15 @@ async def new(name, birthdate):
     else:
         raise HTTPException(status_code=400, detail="name is too long. It must be less than 30 characters long.")
 
-    created_id = enter_birthdate(parsed_name, parsed_birthdate.isoformat())
+    birthdays = read_birthdays(limit=None)
+    match = list(filter(lambda birthday: birthday['name'] == parsed_name, birthdays))
+    if len(match) == 0:
+        id = enter_birthdate(parsed_name, parsed_birthdate.isoformat())
+    else:
+        id = update_birthdate(match[0]['id'], parsed_birthdate.isoformat())
+
     return {
-        'id': created_id
+        'id': id
     }
 
 
@@ -139,14 +146,26 @@ def enter_birthdate(name, birthdate):
     conn = sqlite3.connect(DATABASE_PATH)
     crsr = conn.cursor()
     sql_command = """INSERT INTO BIRTHDAY(name,birthdate) VALUES (?,?);"""
-    id = encrypt(name)
-    dt = encrypt(str(birthdate))
+    enc_name = encrypt(name)
+    enc_date = encrypt(str(birthdate))
 
-    crsr.execute(sql_command, (id, dt))
+    crsr.execute(sql_command, (enc_name, enc_date))
 
     conn.commit()
     conn.close()
     return crsr.lastrowid
+
+
+def update_birthdate(id, birthdate):
+    conn = sqlite3.connect(DATABASE_PATH)
+    crsr = conn.cursor()
+    sql_command = """UPDATE BIRTHDAY SET birthdate = ? WHERE id = ?;"""
+    enc_date = encrypt(str(birthdate))
+    crsr.execute(sql_command, (enc_date, id))
+
+    conn.commit()
+    conn.close()
+    return id
 
 
 def decrypt(encrypted_value):
