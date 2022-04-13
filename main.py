@@ -64,7 +64,8 @@ def parse_forecast(forecast_response):
             'max_temp': str(entry['TX_C']),
             'min_temp': str(entry['TN_C']),
             'icon_id': str(entry['SYMBOL_CODE']),
-            'rain': str(entry['RRR_MM']) + ' mm'
+            'rain': str(entry['RRR_MM']) + ' mm',
+            'rain_probability': str(entry['PROBPCP_PERCENT']) + '%'
         })
     return forecast
 
