@@ -84,10 +84,16 @@ def read_garbage_collections(limit=2):
     erz_calendar.close()
 
     collections = sorted(collections, key=lambda d: d['difference_in_days'])
+    collections = list(filter(lambda x: (x['difference_in_days'] >= 0), collections))
     for collection in collections:
         # Replace 'difference_in_days' Key by 'when' Key
         days = collection.pop('difference_in_days')
-        collection['when'] = ('in ' + str(days) + ' Tagen') if days > 1 else ('in ' + str(days) + ' Tag')
+        if days == 0:
+            collection['when'] = 'heute'
+        elif days == 1:
+            collection['when'] = ('in ' + str(days) + ' Tag')
+        else:
+            collection['when'] = ('in ' + str(days) + ' Tagen')
     return collections[:limit]
 
 
@@ -105,6 +111,7 @@ def read_birthdays(limit=3):
             'name': decrypt(row[1]),
             'birthdate': decrypt(row[2])
         })
+    # TODO: Actually get only the next ones
     return birthdays[:limit]
 
 
