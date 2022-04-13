@@ -78,6 +78,7 @@ def read_garbage_collections(limit=2):
     for component in cal.walk():
         if component.name == 'VEVENT':
             collections.append({
+                # ditch the beginning of the summary
                 'type': component.get('summary').split(': ')[1],
                 # + 1 because we want to round up the day which already has begun
                 'difference_in_days': (component.get('dtstart').dt.astimezone() - datetime.now().astimezone()).days + 1
