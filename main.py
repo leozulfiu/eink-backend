@@ -6,11 +6,10 @@ import httpx as httpx
 import uvicorn
 from datetime import datetime
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from icalendar import Calendar
 from cryptography.fernet import Fernet
 from os import path
-
 
 app = FastAPI()
 
@@ -117,8 +116,20 @@ def read_birthdays(limit=3):
 
 @app.get('/new')
 async def new(name, birthdate):
-    # TODO: Validation, return OK/NOK, switch to POST
-    enter_birthdate(name, birthdate)
+    try:
+        parsed_birthdate = datetime.strptime(birthdate, '%d.%m.%Y').date()
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Could not parse birthdate. Specify in dd.mm.yyyy format.")
+
+    if len(name) < 30:
+        parsed_name = name
+    else:
+        raise HTTPException(status_code=400, detail="name is too long. It must be less than 30 characters long.")
+
+    created_id = enter_birthdate(parsed_name, parsed_birthdate.isoformat())
+    return {
+        'id': created_id
+    }
 
 
 def enter_birthdate(name, birthdate):
@@ -126,12 +137,13 @@ def enter_birthdate(name, birthdate):
     crsr = conn.cursor()
     sql_command = """INSERT INTO BIRTHDAY(name,birthdate) VALUES (?,?);"""
     id = encrypt(name)
-    dt = encrypt(birthdate)
+    dt = encrypt(str(birthdate))
 
     crsr.execute(sql_command, (id, dt))
 
     conn.commit()
     conn.close()
+    return crsr.lastrowid
 
 
 def decrypt(encrypted_value):
