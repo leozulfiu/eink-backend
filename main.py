@@ -102,10 +102,29 @@ def read_birthdays(limit=3):
     birthdays = []
     for row in rows:
         birthdays.append({
-            'name': decrypt(row['name']),
-            'birthdate': decrypt(row['birthdate'])
+            'name': decrypt(row[1]),
+            'birthdate': decrypt(row[2])
         })
     return birthdays[:limit]
+
+
+@app.get('/new')
+async def new(name, birthdate):
+    # TODO: Validation, return OK/NOK, switch to POST
+    enter_birthdate(name, birthdate)
+
+
+def enter_birthdate(name, birthdate):
+    conn = sqlite3.connect(DATABASE_PATH)
+    crsr = conn.cursor()
+    sql_command = """INSERT INTO BIRTHDAY(name,birthdate) VALUES (?,?);"""
+    id = encrypt(name)
+    dt = encrypt(birthdate)
+
+    crsr.execute(sql_command, (id, dt))
+
+    conn.commit()
+    conn.close()
 
 
 def decrypt(encrypted_value):
