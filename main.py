@@ -22,8 +22,8 @@ environment = os.environ.get('environment')
 async def root():
     with httpx.Client() as client:
         forecast = parse_forecast(await fetch_forecast(client))
-        garbage_collections = read_next_two_garbage_collections()
-        birthdays = read_next_three_birthdays()
+        garbage_collections = read_garbage_collections()
+        birthdays = read_birthdays()
 
         response = {
             'date': datetime.now().astimezone().strftime("%a, %d.%m.%Y"),
@@ -57,7 +57,7 @@ def parse_forecast(forecast_response):
     return []
 
 
-def read_next_two_garbage_collections():
+def read_garbage_collections(limit=2):
     erz_calendar = open('entsorgungskalender_2022.ics', 'rb')
     cal = Calendar.from_ical(erz_calendar.read())
     collections = []
@@ -75,10 +75,10 @@ def read_next_two_garbage_collections():
         # Replace 'difference_in_days' Key by 'when' Key
         days = collection.pop('difference_in_days')
         collection['when'] = ('in ' + str(days) + ' Tagen') if days > 1 else ('in ' + str(days) + ' Tag')
-    return collections[:2]
+    return collections[:limit]
 
 
-def read_next_three_birthdays():
+def read_birthdays(limit=3):
     return []
 
 
