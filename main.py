@@ -3,8 +3,7 @@ import os
 import json
 import httpx as httpx
 import uvicorn
-from zoneinfo import ZoneInfo
-from datetime import datetime, timezone
+from datetime import datetime
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from icalendar import Calendar
@@ -27,6 +26,7 @@ async def root():
         birthdays = read_next_three_birthdays()
 
         response = {
+            'date': datetime.now().astimezone().strftime("%a, %d.%m.%Y"),
             'forecast': forecast,
             'garbage_collections': garbage_collections,
             'birthdays': birthdays,
@@ -65,7 +65,7 @@ def read_next_two_garbage_collections():
         if component.name == "VEVENT":
             collections.append({
                 'type': component.get('summary').split(': ')[1],
-                # + 1 because we want to round up the day which already began
+                # + 1 because we want to round up the day which already has begun
                 'difference_in_days': (component.get('dtstart').dt.astimezone() - datetime.now().astimezone()).days + 1
             })
     erz_calendar.close()
