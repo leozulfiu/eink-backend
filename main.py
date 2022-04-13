@@ -10,11 +10,14 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from icalendar import Calendar
 from cryptography.fernet import Fernet
+from os import path
+
 
 app = FastAPI()
-access_token_url = 'https://api.srgssr.ch/oauth/v1/accesstoken?grant_type=client_credentials'
-forecast_url = 'https://api.srgssr.ch/srf-meteo/forecast/47.3868,8.4846'
-database_path = 'birthdays.db'
+
+ACCESS_TOKEN_URL = 'https://api.srgssr.ch/oauth/v1/accesstoken?grant_type=client_credentials'
+FORECAST_URL = 'https://api.srgssr.ch/srf-meteo/forecast/47.3868,8.4846'
+DATABASE_PATH = 'birthdays.db'
 
 load_dotenv()
 client_id = os.environ.get('client_id')
@@ -45,11 +48,11 @@ async def fetch_forecast(client):
         userpass = client_id + ':' + client_secret
         encoded_credentials = base64.b64encode(userpass.encode()).decode()
         headers = {'Authorization': 'Basic ' + encoded_credentials}
-        token_response = client.get(access_token_url, headers=headers).json()
+        token_response = client.get(ACCESS_TOKEN_URL, headers=headers).json()
         access_token = token_response['access_token']
 
         headers = {'Authorization': 'Bearer ' + access_token}
-        return client.get(forecast_url, headers=headers).json()['forecast']
+        return client.get(FORECAST_URL, headers=headers).json()['forecast']
     else:
         example_response = open('example_forecast_response.json')
         return json.load(example_response)['forecast']
@@ -90,7 +93,7 @@ def read_garbage_collections(limit=2):
 
 
 def read_birthdays(limit=3):
-    conn = sqlite3.connect(database_path)
+    conn = sqlite3.connect(DATABASE_PATH)
     crsr = conn.cursor()
     crsr.execute('SELECT * FROM BIRTHDAY')
     rows = crsr.fetchall()
@@ -112,5 +115,26 @@ def decrypt(encrypted_value):
     return decrypt_value.decode()
 
 
+def encrypt(raw_value):
+    encoded_value = raw_value.encode()
+    fer = Fernet(db_secret)
+    return fer.encrypt(encoded_value)
+
+
+def create_database():
+    conn = sqlite3.connect(DATABASE_PATH)
+    crsr = conn.cursor()
+    sql_command = """CREATE TABLE BIRTHDAY(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        birthdate TEXT NOT NULL
+    );"""
+    crsr.execute(sql_command)
+    conn.commit()
+    conn.close()
+
+
 if __name__ == '__main__':
+    if not path.exists(DATABASE_PATH):
+        create_database()
     uvicorn.run(app, host='0.0.0.0', port=8000)
