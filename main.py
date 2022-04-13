@@ -29,7 +29,7 @@ async def root():
     with httpx.Client() as client:
         forecast = parse_forecast(await fetch_forecast(client))
         garbage_collections = read_garbage_collections()
-        birthdays = read_birthdays()
+        birthdays = read_upcoming_birthdays()
 
         response = {
             'date': datetime.now().astimezone().strftime('%a, %d.%m.%Y'),
@@ -99,7 +99,14 @@ def read_garbage_collections(limit=2):
     return collections[:limit]
 
 
-def read_birthdays(limit=3):
+def read_upcoming_birthdays():
+    birthdays = read_birthdays()
+    now = datetime.now()
+    upcoming = sorted(birthdays, key=lambda entry: (datetime.strptime(str(now.year + 1) + entry["birthdate"][4:], '%Y-%m-%d') - now).days % 364)
+    return upcoming[:3]
+
+
+def read_birthdays():
     conn = sqlite3.connect(DATABASE_PATH)
     crsr = conn.cursor()
     crsr.execute('SELECT * FROM BIRTHDAY')
@@ -114,8 +121,7 @@ def read_birthdays(limit=3):
             'name': decrypt(row[1]),
             'birthdate': decrypt(row[2])
         })
-    # TODO: Actually get only the next ones
-    return birthdays[:limit]
+    return birthdays
 
 
 @app.get('/api/new')
@@ -130,7 +136,7 @@ async def new(name, birthdate):
     else:
         raise HTTPException(status_code=400, detail="name is too long. It must be less than 30 characters long.")
 
-    birthdays = read_birthdays(limit=None)
+    birthdays = read_birthdays()
     match = list(filter(lambda birthday: birthday['name'] == parsed_name, birthdays))
     if len(match) == 0:
         id = enter_birthdate(parsed_name, parsed_birthdate.isoformat())
@@ -140,6 +146,11 @@ async def new(name, birthdate):
     return {
         'id': id
     }
+
+
+@app.get('/api/birthdays')
+async def birthdays():
+    return read_birthdays()
 
 
 def enter_birthdate(name, birthdate):
