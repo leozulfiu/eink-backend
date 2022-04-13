@@ -58,7 +58,8 @@ async def fetch_forecast(client):
 
 def parse_forecast(forecast_response):
     forecast = []
-    for entry in forecast_response['day'][:6]:
+    forecast_for_days = 6
+    for entry in forecast_response['day'][:forecast_for_days]:
         forecast.append({
             'day': datetime.fromisoformat(entry['local_date_time']).strftime('%a'),
             'max_temp': str(entry['TX_C']),
