@@ -18,8 +18,8 @@ FORECAST_URL = 'https://api.srgssr.ch/srf-meteo/forecast/47.3868,8.4846'
 DATABASE_PATH = 'birthdays.db'
 
 load_dotenv()
-client_id = os.environ.get('CLIENT_ID')
-client_secret = os.environ.get('CLIENT_SECRET')
+client_id = os.environ.get('SRGSSR_CLIENT_ID')
+client_secret = os.environ.get('SRGSSR_CLIENT_SECRET')
 db_secret = os.environ.get('DB_SECRET')
 environment = os.environ.get('ENVIRONMENT')
 
