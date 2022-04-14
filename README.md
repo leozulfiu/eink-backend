@@ -10,10 +10,9 @@ downloaded from the Stadt Zürich [recycling page](https://www.stadt-zuerich.ch/
 
 ## Todo
 
-- Create requirements.txt file
-- Containerize application
-- Make ics file mountable
-- Make managing the birthdays a bit simpler via a server side rendered page
+1. Containerize application
+2. Make ics file mountable
+3. Make managing the birthdays a bit simpler via a server side rendered page
 
 ## How to run the docker image
 
