@@ -102,7 +102,12 @@ def read_garbage_collections(limit=2):
 def read_upcoming_birthdays():
     birthdays = read_birthdays()
     now = datetime.now()
-    upcoming = sorted(birthdays, key=lambda entry: (datetime.strptime(str(now.year + 1) + entry["birthdate"][4:], '%Y-%m-%d') - now).days % 364)
+    year_in_future = str(now.year + 1)
+    upcoming = sorted(birthdays, key=lambda entry: (datetime.strptime(year_in_future + str(entry['birthdate'].date())[4:], '%Y-%m-%d') - now).days % 364)
+    for entry in upcoming:
+        # Replace 'birthdate' Key by 'date' Key
+        date = entry.pop('birthdate')
+        entry['date'] = str(date.day) + '.' + str(date.month) + '.'
     return upcoming[:3]
 
 
@@ -119,7 +124,7 @@ def read_birthdays():
         birthdays.append({
             'id': row[0],
             'name': decrypt(row[1]),
-            'birthdate': decrypt(row[2])
+            'birthdate': datetime.fromisoformat(decrypt(row[2]))
         })
     return birthdays
 
