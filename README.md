@@ -10,21 +10,39 @@ downloaded from the Stadt Zürich [recycling page](https://www.stadt-zuerich.ch/
 
 ## Todo
 
-1. Containerize application
-2. Make ics file mountable
-3. Make managing the birthdays a bit simpler via a server side rendered page
+1. Make managing the birthdays a bit simpler via some nice interface
+
+## How to build the docker image
+
+Use the following command in the root project folder: `docker build -t eink-backend-image .`
 
 ## How to run the docker image
 
-Multiple variables must be set when starting the container.
+1. Create a folder in the home directory called `e-ink-backend`
+2. Create a file `prod.env` within that directory to define the necessary environment variables. Copy the following content to it
+and change the necessary variables.
 ```
-CLIENT_ID = '1234'
-CLIENT_SECRET = '1234'
-DB_SECRET = '1234='
-ENVIRONMENT = 'local'
+SRGSSR_CLIENT_ID='client_id'
+SRGSSR_CLIENT_SECRET='client_secret'
+MOCK_FILE_NAME='data/mock_filename.json'
+DATABASE_FILE_NAME='data/birthdays.db'
+CALENDAR_FILE_NAME='data/calendar.ics'
+DB_SECRET='12345678'
 ```
-The environment variable can be set to `local` or `production`.
-These vars can be either set as unix env variables or passed as arguments when starting the container.
+The mock env variable can be removed if the real API should be used.
+A secret can be created with the following snippet: 
+
+`dd if=/dev/urandom bs=32 count=1 2>/dev/null | openssl base64`
+
+or
+
+`python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key())"`
+3. Get the ics calendar and save it in a new directory called `data` within the `e-ink-backend` directory.
+Register the path to the calendar file as follows: `data/calendar.ics`
+5. Start the container and pass the created file as an argument:
+```
+docker run -d --env-file ./prod.env --name eink-backend -v /data/folder/on/host:/app/data -p 9000:80 eink-backend-image
+```
 
 ## What I learned
 
@@ -34,3 +52,7 @@ to identify the relevant records when updating something.
 - The value of 'build-once-deploy-everywhere': During the **deployment** it is the only time when environment
 specific configurations should be made, since at that time I know to which environment I'm going to deploy.
 The only downside which comes to my mind is, that the image contains possibly unnecessary things such as mock data.
+
+## References
+- https://dev.to/dev1721/do-you-wanna-keep-your-embedded-database-encrypted-5egk
+- https://fastapi.tiangolo.com/deployment/docker/

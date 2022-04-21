@@ -15,13 +15,17 @@ app = FastAPI()
 
 ACCESS_TOKEN_URL = 'https://api.srgssr.ch/oauth/v1/accesstoken?grant_type=client_credentials'
 FORECAST_URL = 'https://api.srgssr.ch/srf-meteo/forecast/47.3868,8.4846'
-DATABASE_PATH = 'birthdays.db'
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 load_dotenv()
-client_id = os.environ.get('SRGSSR_CLIENT_ID')
-client_secret = os.environ.get('SRGSSR_CLIENT_SECRET')
-db_secret = os.environ.get('DB_SECRET')
-environment = os.environ.get('ENVIRONMENT')
+SRGSSR_CLIENT_ID = os.environ.get('SRGSSR_CLIENT_ID', None)
+SRGSSR_CLIENT_SECRET = os.environ.get('SRGSSR_CLIENT_SECRET', None)
+DATABASE_FILE_NAME = os.path.join(ROOT, os.environ.get('DATABASE_FILE_NAME'))
+CALENDAR_FILE_NAME = os.path.join(ROOT, os.environ.get('CALENDAR_FILE_NAME'))
+env_mock = os.environ.get('MOCK_FILE_NAME', None)
+MOCK_FILE_NAME = os.path.join(ROOT, env_mock) if env_mock else None
+DB_SECRET = os.environ.get('DB_SECRET')
 
 
 @app.get('/')
@@ -42,8 +46,11 @@ async def root():
 
 
 async def fetch_forecast(client):
-    if environment == 'production':
-        userpass = client_id + ':' + client_secret
+    if MOCK_FILE_NAME:
+        example_response = open(MOCK_FILE_NAME)
+        return json.load(example_response)['forecast']
+    else:
+        userpass = SRGSSR_CLIENT_ID + ':' + SRGSSR_CLIENT_SECRET
         encoded_credentials = base64.b64encode(userpass.encode()).decode()
         headers = {'Authorization': 'Basic ' + encoded_credentials}
         token_response = client.get(ACCESS_TOKEN_URL, headers=headers).json()
@@ -51,9 +58,6 @@ async def fetch_forecast(client):
 
         headers = {'Authorization': 'Bearer ' + access_token}
         return client.get(FORECAST_URL, headers=headers).json()['forecast']
-    else:
-        example_response = open('example_forecast_response.json')
-        return json.load(example_response)['forecast']
 
 
 def parse_forecast(forecast_response):
@@ -72,7 +76,7 @@ def parse_forecast(forecast_response):
 
 
 def read_garbage_collections(limit=2):
-    erz_calendar = open('entsorgungskalender_2022.ics', 'rb')
+    erz_calendar = open(CALENDAR_FILE_NAME, 'rb')
     cal = Calendar.from_ical(erz_calendar.read())
     collections = []
     for component in cal.walk():
@@ -112,7 +116,7 @@ def read_upcoming_birthdays():
 
 
 def read_birthdays():
-    conn = sqlite3.connect(DATABASE_PATH)
+    conn = sqlite3.connect(DATABASE_FILE_NAME)
     crsr = conn.cursor()
     crsr.execute('SELECT * FROM BIRTHDAY')
     rows = crsr.fetchall()
@@ -159,7 +163,7 @@ async def birthdays():
 
 
 def enter_birthdate(name, birthdate):
-    conn = sqlite3.connect(DATABASE_PATH)
+    conn = sqlite3.connect(DATABASE_FILE_NAME)
     crsr = conn.cursor()
     sql_command = """INSERT INTO BIRTHDAY(name,birthdate) VALUES (?,?);"""
     enc_name = encrypt(name)
@@ -173,7 +177,7 @@ def enter_birthdate(name, birthdate):
 
 
 def update_birthdate(id, birthdate):
-    conn = sqlite3.connect(DATABASE_PATH)
+    conn = sqlite3.connect(DATABASE_FILE_NAME)
     crsr = conn.cursor()
     sql_command = """UPDATE BIRTHDAY SET birthdate = ? WHERE id = ?;"""
     enc_date = encrypt(str(birthdate))
@@ -185,19 +189,19 @@ def update_birthdate(id, birthdate):
 
 
 def decrypt(encrypted_value):
-    fer = Fernet(db_secret)
+    fer = Fernet(DB_SECRET)
     decrypt_value = fer.decrypt(encrypted_value)
     return decrypt_value.decode()
 
 
 def encrypt(raw_value):
     encoded_value = raw_value.encode()
-    fer = Fernet(db_secret)
+    fer = Fernet(DB_SECRET)
     return fer.encrypt(encoded_value)
 
 
 def create_database():
-    conn = sqlite3.connect(DATABASE_PATH)
+    conn = sqlite3.connect(DATABASE_FILE_NAME)
     crsr = conn.cursor()
     sql_command = """CREATE TABLE BIRTHDAY(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -209,7 +213,10 @@ def create_database():
     conn.close()
 
 
-if __name__ == '__main__':
-    if not path.exists(DATABASE_PATH):
+@app.on_event("startup")
+async def startup_event():
+    if not path.exists(DATABASE_FILE_NAME):
         create_database()
-    uvicorn.run(app, host='0.0.0.0', port=8000)
+
+if __name__ == '__main__':
+    uvicorn.run(app, host='0.0.0.0', port=9000)
