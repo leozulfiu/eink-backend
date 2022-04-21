@@ -57,7 +57,6 @@ Register the path to the calendar file as follows: `data/calendar.ics`
 ```
 .
 ├── data
-│   ├── birthdays.db
 │   └── calendar.ics
 └── prod.env
 ```
