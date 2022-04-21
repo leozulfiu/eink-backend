@@ -12,13 +12,19 @@ downloaded from the Stadt Zürich [recycling page](https://www.stadt-zuerich.ch/
 
 1. Make managing the birthdays a bit simpler via some nice interface
 
+## How to run locally
+
+1. Copy the .env_example file and paste it at the same location with the name `.env`
+2. Start the main script within the `app` folder
+3. Navigate to `http://localhost:9000`
+
 ## How to build the docker image
 
 Use the following command in the root project folder: `docker build -t eink-backend-image .`
 
-## How to run the docker image
+## How to run the docker image in production
 
-1. Create a folder in the home directory called `e-ink-backend`
+1. Create a directory somewhere called `e-ink-backend`
 2. Create a file `prod.env` within that directory to define the necessary environment variables. Copy the following content to it
 and change the necessary variables.
 ```
@@ -29,19 +35,31 @@ DATABASE_FILE_NAME='data/birthdays.db'
 CALENDAR_FILE_NAME='data/calendar.ics'
 DB_SECRET='12345678'
 ```
-The mock env variable can be removed if the real API should be used.
+The mock env variable can be completely removed if the real API should be used.
 A secret can be created with the following snippet: 
 
 `dd if=/dev/urandom bs=32 count=1 2>/dev/null | openssl base64`
 
-or
+or 
 
 `python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key())"`
+
+**Keep the secret safe somewhere!**
+
 3. Get the ics calendar and save it in a new directory called `data` within the `e-ink-backend` directory.
 Register the path to the calendar file as follows: `data/calendar.ics`
-5. Start the container and pass the created file as an argument:
+
+4. The folder structure should look as follows
 ```
-docker run -d --env-file ./prod.env --name eink-backend -v /data/folder/on/host:/app/data -p 9000:80 eink-backend-image
+.
+├── data
+│   ├── birthdays.db
+│   └── calendar.ics
+└── prod.env
+```
+6. Start the container and pass the created file as an argument:
+```
+docker run -d --env-file ./prod.env --name eink-backend -v /host/custom/dir/e-ink-backend/data:/app/data -p 9000:80 eink-backend-image
 ```
 
 ## What I learned
