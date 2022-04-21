@@ -30,7 +30,7 @@ and change the necessary variables.
 ```
 SRGSSR_CLIENT_ID='client_id'
 SRGSSR_CLIENT_SECRET='client_secret'
-MOCK_FILE_NAME='data/mock_filename.json'
+#MOCK_FILE_NAME='data/mock_filename.json'
 DATABASE_FILE_NAME='data/birthdays.db'
 CALENDAR_FILE_NAME='data/calendar.ics'
 DB_SECRET='12345678'
@@ -43,6 +43,10 @@ A secret can be created with the following snippet:
 or 
 
 `python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key())"`
+
+or
+
+[by generating new fernet keys online](https://fernetkeygen.com/)
 
 **Keep the secret safe somewhere!**
 
