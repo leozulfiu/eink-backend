@@ -22,6 +22,15 @@ downloaded from the Stadt Zürich [recycling page](https://www.stadt-zuerich.ch/
 
 Use the following command in the root project folder: `docker build -t eink-backend-image .`
 
+## Export image as tar archive and import it onto another host
+
+1. Export image as file: `docker save --output eink-backend-image.tar eink-backend-image`
+2. Copy image to another host via `cp` or `scp`
+3. Load image on other host: `docker load -i <path to image tar file>`
+
+Or everything in one command: `docker save eink-backend-image | bzip2 | pv | ssh user@host docker load`
+Note that this command doesn't work well when a password is required.
+
 ## How to run the docker image in production
 
 1. Create a directory somewhere called `e-ink-backend`
