@@ -60,7 +60,7 @@ or
 
 [by generating new fernet keys online](https://fernetkeygen.com/)
 
-**Keep the secret safe somewhere!**
+**Keep the secret somewhere safe!**
 
 3. Get the ics calendar and save it in a new directory called `data` within the `e-ink-backend` directory.
 Register the path to the calendar file as follows: `data/calendar.ics`
