@@ -1,9 +1,17 @@
 FROM python:3.9-slim
 
+RUN apt-get update && \
+    apt-get install --quiet --assume-yes \
+    libffi-dev \
+    libssl-dev \
+    python3-pip \
+    && apt-get autoremove -y \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
 COPY ./requirements.txt /app/requirements.txt
-
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
 # set env variables

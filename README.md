@@ -22,6 +22,9 @@ downloaded from the Stadt Zürich [recycling page](https://www.stadt-zuerich.ch/
 
 Use the following command in the root project folder: `docker build -t eink-backend-image .`
 
+If the image should be run on an armv7 host, use the following command: 
+`docker buildx build --platform linux/arm/v7 -t eink-backend-image .`
+
 ## Export image as tar archive and import it onto another host
 
 1. Export image as file: `docker save --output eink-backend-image.tar eink-backend-image`
@@ -78,10 +81,13 @@ docker run -d --env-file ./prod.env --name eink-backend -v /host/custom/dir/e-in
 
 - The date of birth and name are according the GDPR regulations personal data and should be encrypted.
 When using an encryption method including a salt, I noticed an id was indispensable to use, since I'm not able
-to identify the relevant records when updating something.
+to identify the relevant records when updating a record.
 - The value of 'build-once-deploy-everywhere': During the **deployment** it is the only time when environment
 specific configurations should be made, since at that time I know to which environment I'm going to deploy.
 The only downside which comes to my mind is, that the image contains possibly unnecessary things such as mock data.
+But that can be mitigated by separating the application code and mock code in two clear applications.
+- Docker images are built for specific CPU architectures. Running an image on an ARM host which was built by a
+x86 machine won't work.
 
 ## References
 - https://dev.to/dev1721/do-you-wanna-keep-your-embedded-database-encrypted-5egk
