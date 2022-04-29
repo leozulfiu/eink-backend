@@ -14,16 +14,18 @@ downloaded from the Stadt Zürich [recycling page](https://www.stadt-zuerich.ch/
 
 ## How to run locally
 
-1. Copy the .env_example file and paste it at the same location with the name `.env`
-2. Start the main script within the `app` folder
-3. Navigate to `http://localhost:9000`
+1. *(optional)* Create a virtual environment and activate it
+2. Install all necessary requirements with pip: `pip install -r requirements.txt` 
+3. Copy the .env_example file and paste it at the same location with the name `.env`
+4. Start the main script within the `app` folder
+5. Navigate to `http://localhost:9000`
 
 ## How to build the docker image
 
 Use the following command in the root project folder: `docker build -t eink-backend-image .`
 
-If the image should be run on an armv7 host, use the following command: 
-`docker buildx build --platform linux/arm/v7 -t eink-backend-image .`
+If the image should be run on an arm64 host, use the following command: 
+`docker buildx build --platform linux/arm64 -t eink-backend-image .`
 
 ## Export image as tar archive and import it onto another host
 
@@ -32,7 +34,8 @@ If the image should be run on an armv7 host, use the following command:
 3. Load image on other host: `docker load -i <path to image tar file>`
 
 Or everything in one command: `docker save eink-backend-image | bzip2 | pv | ssh user@host docker load`
-Note that this command doesn't work well when a password is required.
+Note that this command doesn't work well when a password is required. Follow [this](https://linuxize.com/post/how-to-setup-passwordless-ssh-login/) guide to allow
+ssh password free login.
 
 ## How to run the docker image in production
 
@@ -86,8 +89,9 @@ to identify the relevant records when updating a record.
 specific configurations should be made, since at that time I know to which environment I'm going to deploy.
 The only downside which comes to my mind is, that the image contains possibly unnecessary things such as mock data.
 But that can be mitigated by separating the application code and mock code in two clear applications.
-- Docker images are built for specific CPU architectures. Running an image on an ARM host which was built by a
-x86 machine won't work.
+- Docker images are built for specific CPU architectures. Running an image on an ARM host which was built by an
+x86 machine won't work. Furthermore, it can happen that even some dependencies won't work for the target architecture
+(example: cryptography).
 
 ## References
 - https://dev.to/dev1721/do-you-wanna-keep-your-embedded-database-encrypted-5egk
