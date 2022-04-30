@@ -91,6 +91,8 @@ This has the advantage that no parameters have to be defined when starting up th
 4. Create a data folder and copy the necessary files (calendar at minimum and the mock response) to it
 5. Execute `docker-compose up -d` to start the service with all configured parameters within the file
 
+Note that since this is an image which does not exist on docker hub, it must be created manually beforehand.
+
 ## What I learned
 
 - The date of birth and name are according the GDPR regulations personal data and should be encrypted.

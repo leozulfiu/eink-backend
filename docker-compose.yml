@@ -4,7 +4,7 @@ services:
         container_name: eink-backend
         image: eink-backend-image
         volumes:
-            - '/host/custom/dir/e-ink-backend/data:/app/data'
+            - './example_data:/app/data'
         ports:
             - '9000:80'
         environment:
