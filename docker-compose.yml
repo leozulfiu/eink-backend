@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+    eink-backend-image:
+        container_name: eink-backend
+        image: eink-backend-image
+        volumes:
+            - '/host/custom/dir/e-ink-backend/data:/app/data'
+        ports:
+            - '9000:80'
+        environment:
+            MOCK_FILE_NAME: example_data/srgssr_forecast_response.json
+            DATABASE_FILE_NAME: example_data/empty_birthdays.db
+            CALENDAR_FILE_NAME: example_data/entsorgungskalender_2022.ics
+            DB_SECRET: eEiPnGE5C6k48tMBcG/BMCzgEreFkzl7MLD0UQhN5U4=

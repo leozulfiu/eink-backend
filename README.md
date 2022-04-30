@@ -80,6 +80,17 @@ Register the path to the calendar file as follows: `data/calendar.ics`
 docker run -d --env-file ./prod.env --name eink-backend -v /host/custom/dir/e-ink-backend/data:/app/data -p 9000:80 eink-backend-image
 ```
 
+### Alternatively use docker-compose
+
+Instead of the run command method above, a docker compose file can be used to start the service.
+This has the advantage that no parameters have to be defined when starting up the container and thus increases the reproducibility.
+
+1. Create a docker-compose.yml file within the `e-ink-backend` folder.
+2. Copy the content of the projects docker-compose file to the newly created file
+3. Change and extend the environment variables according to the doc above
+4. Create a data folder and copy the necessary files (calendar at minimum and the mock response) to it
+5. Execute `docker-compose up -d` to start the service with all configured parameters within the file
+
 ## What I learned
 
 - The date of birth and name are according the GDPR regulations personal data and should be encrypted.
