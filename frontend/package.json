@@ -9,8 +9,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build && mkdir -p ../app/static && mv build/* ../app/static && rm -rf build"
   },
   "browserslist": {
     "production": [

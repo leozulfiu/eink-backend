@@ -4,6 +4,7 @@ from datetime import datetime
 import httpx as httpx
 import uvicorn
 from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
 from icalendar import Calendar
 
 from app.db import read_birthdays, enter_birthdate, update_birthdate, create_database_if_not_exists
@@ -11,11 +12,12 @@ from app.root_path import ROOT
 from app.weather_api import fetch_forecast
 
 app = FastAPI()
+app.mount('/', StaticFiles(directory="static", html=True), name="static")
 
 CALENDAR_FILE_NAME = os.path.join(ROOT, os.environ.get('CALENDAR_FILE_NAME'))
 
 
-@app.get('/dashboard')
+@app.get('/api/dashboard')
 async def dashboard():
     with httpx.Client() as client:
         forecast = parse_forecast(await fetch_forecast(client))
