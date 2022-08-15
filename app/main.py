@@ -12,7 +12,6 @@ from app.root_path import ROOT
 from app.weather_api import fetch_forecast
 
 app = FastAPI()
-app.mount('/', StaticFiles(directory="static", html=True), name="static")
 
 CALENDAR_FILE_NAME = os.path.join(ROOT, os.environ.get('CALENDAR_FILE_NAME'))
 
@@ -123,6 +122,7 @@ async def birthdays():
 async def startup_event():
     create_database_if_not_exists()
 
+app.mount('/', StaticFiles(directory="static", html=True), name="static")
 
 if __name__ == '__main__':
     uvicorn.run(app, host='0.0.0.0', port=9000)

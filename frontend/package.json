@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && mkdir -p ../app/static && mv build/* ../app/static && rm -rf build"
+    "build": "react-scripts build && rm -rf ../app/static && mkdir -p ../app/static && mv build/* ../app/static && rm -rf build"
   },
   "browserslist": {
     "production": [
