@@ -1,34 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import 'bulma/css/bulma.min.css';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      items: [],
-      dataIsLoaded: false
+function App() {
+  // This is needed, otherwise the initial request would be executed twice
+  const hasFetchedData = useRef(false);
+  const [birthdates, setItems] = useState([]);
+  
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        await fetch('api/birthdays')
+        .then(response => response.json())
+        .then(data => setItems(data));
+      } catch (e) {
+        console.error('Error fetching api data', e);
+      };
     };
+    if (hasFetchedData.current === false) {
+      fetchData();
+      hasFetchedData.current = true;
+    }
+  }, []);
+
+  function deleteRow(id) {
+    setItems(birthdates.filter(item => item.id !== id));
+    
   }
 
-  componentDidMount() {
-    fetch("api/birthdays")
-      .then((res) => res.json())
-      .then((json) => {
-        this.setState({
-          items: json,
-          dataIsLoaded: true
-        });
-      })
-  }
-  render() {
-    const { dataIsLoaded, items } = this.state;
-    if (!dataIsLoaded) return <div>
-      <h1> Pleses wait some time.... </h1> </div>;
-
-    return (
-      <section className="section">
+  return (
+    <section className="section">
         <div className="container">
           <h1 className="title">
             Birthday management
@@ -48,22 +49,20 @@ class App extends React.Component {
             </thead>
             <tbody>
               {
-                items.map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.id}</td>
-                    <td>{item.name}</td>
-                    <td>{item.birthdate}</td>
-                    <td><button className="delete"></button></td>
+                birthdates.map((birthdate) => (
+                  <tr key={birthdate.id}>
+                    <td>{birthdate.id}</td>
+                    <td>{birthdate.name}</td>
+                    <td>{birthdate.birthdate}</td>
+                    <td><button className="delete" onClick={() => deleteRow(birthdate.id)}></button></td>
                   </tr>
-
                 ))
               }
             </tbody>
           </table>
         </div>
       </section>
-    );
-  }
-}
+  );
+ }
 
 export default App;

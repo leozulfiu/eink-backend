@@ -7,7 +7,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from icalendar import Calendar
 
-from app.db import read_birthdays, enter_birthdate, update_birthdate, create_database_if_not_exists
+from app.db import read_birthdays, enter_birthdate, update_birthdate, create_database_if_not_exists, delete_birthdate
 from app.root_path import ROOT
 from app.weather_api import fetch_forecast
 
@@ -89,6 +89,11 @@ def read_upcoming_birthdays():
     return upcoming[:3]
 
 
+@app.get('/api/birthdays')
+async def get_birthdays():
+    return read_birthdays()
+
+
 @app.get('/api/new')
 async def new(name, birthdate):
     try:
@@ -113,9 +118,9 @@ async def new(name, birthdate):
     }
 
 
-@app.get('/api/birthdays')
-async def birthdays():
-    return read_birthdays()
+@app.delete('/api/birthdays/{item_id}')
+async def delete_birthday(item_id):
+    delete_birthdate(item_id)
 
 
 @app.on_event("startup")

@@ -55,6 +55,16 @@ def update_birthdate(id, birthdate):
     return id
 
 
+def delete_birthdate(id):
+    conn = sqlite3.connect(DATABASE_FILE_NAME)
+    crsr = conn.cursor()
+    sql_command = """DELETE FROM BIRTHDAY WHERE id = ?;"""
+    crsr.execute(sql_command, id)
+
+    conn.commit()
+    conn.close()
+
+
 def decrypt(encrypted_value):
     fer = Fernet(DB_SECRET)
     decrypt_value = fer.decrypt(encrypted_value)
