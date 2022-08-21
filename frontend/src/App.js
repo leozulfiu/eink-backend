@@ -26,14 +26,14 @@ function App() {
     fetchData();
   }, []);
 
-  function deleteRow(id) {
+  const deleteRow = (id) => {
     setBirthdates(birthdates.filter(item => item.id !== id));
     fetch(`api/birthdays/${id}`, {
       method: 'DELETE'
     });
   }
 
-  function createNewBirthday() {
+  const createNewBirthday = () => {
     fetch('api/birthdays', {
       method: 'POST',
       headers: {
@@ -56,6 +56,7 @@ function App() {
       switch (status) {
         case 201:
         case 200:
+          setHasError(false);
           setSubmitted(true);
           setSubmittedName(json.name);
           setBirthdates([...birthdates, {id: json.id, name: json.name, birthdate: json.birthdate}]);
@@ -108,7 +109,7 @@ function App() {
     return `${dm > 0 ? monthsText : 'in'} ${dd} day${dd > 1 ? 's':''}`;
   }
 
-  function getNextBirthday(date) {
+  const getNextBirthday = (date) => {
     const currentDate = new Date();
 
     const birthday = new Date(date);
@@ -122,6 +123,11 @@ function App() {
 
   const sortDatesAsc = (a, b) => {
     return getNextBirthday(a.birthdate) - getNextBirthday(b.birthdate);
+  }
+
+  const closeNotification = () => {
+    setSubmitted(false);
+    setSubmittedName(null);
   }
 
   return (
@@ -149,6 +155,7 @@ function App() {
           </div>
 
           {submitted && <div className="notification">
+            <button className="delete" onClick={() => closeNotification()}></button>
             Birthdate with name '{submittedName}' successfully added
           </div>}
           {hasError && <div className="notification is-warning">
