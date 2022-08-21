@@ -106,6 +106,22 @@ function App() {
     return `${dm > 0 ? monthsText : 'in'} ${dd} day${dd > 1 ? 's':''}`;
   }
 
+  function getNextBirthday(date) {
+    const currentDate = new Date();
+
+    const birthday = new Date(date);
+    birthday.setFullYear(currentDate.getFullYear());
+
+    if (birthday - currentDate < 0) {
+        birthday.setFullYear(currentDate.getFullYear() + 1);
+    }
+    return birthday;
+  }
+
+  const sortDatesAsc = (a, b) => {
+    return getNextBirthday(a.birthdate) - getNextBirthday(b.birthdate);
+  }
+
   return (
     <section className="section">
         <div className="container">
@@ -149,7 +165,7 @@ function App() {
             </thead>
             <tbody>
               {
-                birthdates.map((birthdate) => (
+                birthdates.sort(sortDatesAsc).map((birthdate) => (
                   <tr key={birthdate.id}>
                     <td>{birthdate.id}</td>
                     <td>{birthdate.name}</td>
