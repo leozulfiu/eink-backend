@@ -88,12 +88,22 @@ function App() {
   };
 
   const formatDate = (isoFormatDate) => {
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(isoFormatDate).toLocaleDateString('en-DE', options);
   }
 
   const birthdayIn = (isoFormatDate) => {
-    return 'in 3 months and 14 days';
+    const d1 = new Date(isoFormatDate);
+    const d2 = new Date();
+
+    let dm = d1.getMonth() - d2.getMonth();
+    let dd = d1.getDate()  - d2.getDate();
+    
+    if (dd < 0) { dm -= 1; dd += 30; }
+    if (dm < 0) { dm += 12; }
+    
+    const monthsText = `in ${dm} month${dm > 0 ? 's':''} and`;
+    return `${dm > 0 ? monthsText : 'in'} ${dd} day${dd > 1 ? 's':''}`;
   }
 
   return (
