@@ -43,18 +43,6 @@ def enter_birthdate(name, birthdate):
     return crsr.lastrowid
 
 
-def update_birthdate(id, birthdate):
-    conn = sqlite3.connect(DATABASE_FILE_NAME)
-    crsr = conn.cursor()
-    sql_command = """UPDATE BIRTHDAY SET birthdate = ? WHERE id = ?;"""
-    enc_date = encrypt(str(birthdate))
-    crsr.execute(sql_command, (enc_date, id))
-
-    conn.commit()
-    conn.close()
-    return id
-
-
 def delete_birthdate(id):
     conn = sqlite3.connect(DATABASE_FILE_NAME)
     crsr = conn.cursor()

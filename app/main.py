@@ -8,7 +8,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from icalendar import Calendar
 
-from app.db import read_birthdays, enter_birthdate, update_birthdate, create_database_if_not_exists, delete_birthdate
+from app.db import read_birthdays, enter_birthdate, create_database_if_not_exists, delete_birthdate
 from app.root_path import ROOT
 from app.weather_api import fetch_forecast
 
