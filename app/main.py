@@ -5,6 +5,7 @@ import httpx as httpx
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 from icalendar import Calendar
 
 from app.db import read_birthdays, enter_birthdate, update_birthdate, create_database_if_not_exists, delete_birthdate
@@ -94,28 +95,46 @@ async def get_birthdays():
     return read_birthdays()
 
 
-@app.get('/api/new')
-async def new(name, birthdate):
+class CreateEntryRequest(BaseModel):
+    name: str
+    birthdate: str
+
+
+@app.post('/api/birthdays')
+async def new_birthdate(request: CreateEntryRequest):
+    parsed_name = await parse_name(request.name)
+    parsed_birthdate = await parse_birthdate(request.birthdate)
+
+    id = enter_birthdate(parsed_name, parsed_birthdate.isoformat())
+    return {
+        'id': id,
+        'name': parsed_name,
+        'birthdate': parsed_birthdate.isoformat()
+    }
+
+
+@app.put('/api/birthdays/{item_id}')
+async def update_birthdate(item_id):
+    # id = enter_birthdate(parsed_name, parsed_birthdate.isoformat())
+    return {
+        'id': 234
+    }
+
+
+async def parse_name(name):
+    if 3 <= len(name) < 30:
+        parsed_name = name
+    else:
+        raise HTTPException(status_code=400, detail="name is too long. It must be less than 30 characters long.")
+    return parsed_name
+
+
+async def parse_birthdate(birthdate):
     try:
         parsed_birthdate = datetime.strptime(birthdate, '%d.%m.%Y').date()
     except ValueError:
         raise HTTPException(status_code=400, detail="Could not parse birthdate. Specify in dd.mm.yyyy format.")
-
-    if len(name) < 30:
-        parsed_name = name
-    else:
-        raise HTTPException(status_code=400, detail="name is too long. It must be less than 30 characters long.")
-
-    birthdays = read_birthdays()
-    match = list(filter(lambda birthday: birthday['name'] == parsed_name, birthdays))
-    if len(match) == 0:
-        id = enter_birthdate(parsed_name, parsed_birthdate.isoformat())
-    else:
-        id = update_birthdate(match[0]['id'], parsed_birthdate.isoformat())
-
-    return {
-        'id': id
-    }
+    return parsed_birthdate
 
 
 @app.delete('/api/birthdays/{item_id}')

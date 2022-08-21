@@ -59,7 +59,7 @@ def delete_birthdate(id):
     conn = sqlite3.connect(DATABASE_FILE_NAME)
     crsr = conn.cursor()
     sql_command = """DELETE FROM BIRTHDAY WHERE id = ?;"""
-    crsr.execute(sql_command, id)
+    crsr.execute(sql_command, (id,))
 
     conn.commit()
     conn.close()
