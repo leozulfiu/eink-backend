@@ -9,6 +9,7 @@ function App() {
     birthdate: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submittedName, setSubmittedName] = useState(null);
   const [hasError, setHasError] = useState(false);
   const [error, setError] = useState(null);
 
@@ -56,6 +57,7 @@ function App() {
         case 201:
         case 200:
           setSubmitted(true);
+          setSubmittedName(json.name);
           setBirthdates([...birthdates, {id: json.id, name: json.name, birthdate: json.birthdate}]);
           setFormValues({
             name: '',
@@ -147,7 +149,7 @@ function App() {
           </div>
 
           {submitted && <div className="notification">
-            Birthdate with name '{formValues.name}' successfully added
+            Birthdate with name '{submittedName}' successfully added
           </div>}
           {hasError && <div className="notification is-warning">
             There was an error during submission. {error.status}. {error.message}
