@@ -113,19 +113,12 @@ async def new_birthdate(request: CreateEntryRequest):
     }
 
 
-@app.put('/api/birthdays/{item_id}')
-async def update_birthdate(item_id):
-    # id = enter_birthdate(parsed_name, parsed_birthdate.isoformat())
-    return {
-        'id': 234
-    }
-
-
 async def parse_name(name):
     if 3 <= len(name) < 30:
         parsed_name = name
     else:
-        raise HTTPException(status_code=400, detail="name is too long. It must be less than 30 characters long.")
+        raise HTTPException(status_code=400, detail="name is too long. It must be more than 3 and less than 30 "
+                                                    "characters long.")
     return parsed_name
 
 

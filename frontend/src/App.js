@@ -131,8 +131,8 @@ function App() {
   }
 
   return (
-    <section className="section">
-      <div className="container">
+    <div className="container">
+      <section className="section">
         <h1 className="title">
           Birthday management
         </h1>
@@ -154,15 +154,16 @@ function App() {
           </div>
         </div>
 
-        {submitted && <div className="notification">
+        {submitted && <div className="notification is-primary">
           <button className="delete" onClick={() => closeNotification()}></button>
           Birthdate with name '{submittedName}' successfully added
         </div>}
         {hasError && <div className="notification is-warning">
-          There was an error during submission. {error.status}. {error.message}
+          There was an error adding the birthday. {error.status}. {error.message}
         </div>}
-
-        <table className="table">
+      </section>
+      <section className="section pt-0">
+        <table className="table is-striped is-hoverable is-fullwidth">
           <thead>
             <tr>
               <th>Id</th>
@@ -186,8 +187,8 @@ function App() {
             }
           </tbody>
         </table>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
 
