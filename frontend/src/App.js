@@ -166,7 +166,6 @@ function App() {
         <table className="table is-striped is-hoverable is-fullwidth">
           <thead>
             <tr>
-              <th>Id</th>
               <th>Name</th>
               <th>Date of birth</th>
               <th>Birthday in</th>
@@ -177,8 +176,7 @@ function App() {
             {
               birthdates.sort(sortDatesAsc).map((birthdate) => (
                 <tr key={birthdate.id}>
-                  <td>{birthdate.id}</td>
-                  <td>{birthdate.name}</td>
+                  <td title={'Id: ' + birthdate.id}>{birthdate.name}</td>
                   <td>{formatDate(birthdate.birthdate)}</td>
                   <td>{birthdayIn(birthdate.birthdate)}</td>
                   <td><button className="delete" onClick={() => deleteRow(birthdate.id)}></button></td>
