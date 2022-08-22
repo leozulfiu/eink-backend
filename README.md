@@ -8,38 +8,36 @@ the next garbage collection dates and some upcoming birthdays.
 downloaded from the Stadt Zürich [recycling page](https://www.stadt-zuerich.ch/ted/de/index/entsorgung_recycling/entsorgen/persoenlicher_entsorgungskalender.html)
 - The upcoming birthdays of my friends are stored in a sqlite database and can be managed by a simple frontend
 
-## Todo
-
-1. Make managing the birthdays a bit simpler via some nice interface
-
 ## How to run locally
 
 1. *(optional)* Create a virtual environment and activate it
 2. Install all necessary requirements with pip: `pip install -r requirements.txt` 
 3. Copy the .env_example file and paste it at the same location with the name `.env`
 4. Start the main script within the `app` folder
-5. Navigate to `http://localhost:9000`
+5. Install all dependencies in the frontend folder via `npm install`
+6. Start the frontend dev server via `npm run start`
+7. Navigate to `http://localhost:3000`
 
 ## How to build the docker image
 
 Use the following command in the root project folder: `docker build -t eink-backend-image .`
 
-If the image should be run on an arm64 host, use the following command: 
+If the image should run on an arm64 host, use the following command: 
 `docker buildx build --platform linux/arm64 -t eink-backend-image .`
 
 ## Export image as tar archive and import it onto another host
 
 1. Export image as file: `docker save --output eink-backend-image.tar eink-backend-image`
 2. Copy image to another host via `cp` or `scp`
-3. Load image on other host: `docker load -i <path to image tar file>`
+3. Load image on the other host: `docker load -i <path to image tar file>`
 
-Or everything in one command: `docker save eink-backend-image | bzip2 | pv | ssh user@host docker load`
+Or everything in one command: `docker save eink-backend-image | bzip2 | pv | ssh user@host docker load`.
 Note that this command doesn't work well when a password is required. Follow [this](https://linuxize.com/post/how-to-setup-passwordless-ssh-login/) guide to allow
 ssh password free login.
 
 ## How to run the docker image in production
 
-1. Create a directory somewhere called `e-ink-backend`
+1. Create a directory on the host called `e-ink-backend`
 2. Create a file `prod.env` within that directory to define the necessary environment variables. Copy the following content to it
 and change the necessary variables.
 ```
