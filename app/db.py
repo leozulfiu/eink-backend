@@ -72,6 +72,7 @@ def encrypt(raw_value):
 def create_database_if_not_exists():
     print('Checking if database exists in: ' + DATABASE_FILE_NAME)
     if path.exists(DATABASE_FILE_NAME):
+        print('Database file exists and will be used')
         return
     print("Database file doesn't exist and will be created")
 
