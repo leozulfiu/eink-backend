@@ -1,4 +1,5 @@
 import sqlite3
+import sys
 from datetime import datetime
 from os import path
 import os
@@ -7,7 +8,10 @@ from cryptography.fernet import Fernet
 
 from root_path import ROOT
 
-DATABASE_FILE_NAME = os.path.join(ROOT, os.environ.get('DATABASE_FILE_NAME'))
+DB_ENV = os.environ.get('DATABASE_FILE_NAME')
+if not DB_ENV:
+    sys.exit('DATABASE_FILE_NAME was not set!')
+DATABASE_FILE_NAME = os.path.join(ROOT, DB_ENV)
 DB_SECRET = os.environ.get('DB_SECRET')
 
 

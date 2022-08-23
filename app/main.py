@@ -1,4 +1,5 @@
 import os
+import sys
 from datetime import datetime
 
 import httpx as httpx
@@ -14,7 +15,10 @@ from weather_api import fetch_forecast
 
 app = FastAPI()
 
-CALENDAR_FILE_NAME = os.path.join(ROOT, os.environ.get('CALENDAR_FILE_NAME'))
+CAL_ENV = os.environ.get('CALENDAR_FILE_NAME')
+if not CAL_ENV:
+    sys.exit('CALENDAR_FILE_NAME was not set!')
+CALENDAR_FILE_NAME = os.path.join(ROOT, CAL_ENV)
 
 
 @app.get('/api/dashboard')
@@ -57,9 +61,9 @@ def read_garbage_collections(limit=2):
         if component.name == 'VEVENT':
             collections.append({
                 # ditch the beginning of the summary
-                'type': component.get('summary').split(': ')[1],
+                'type': component.CAL_ENV('summary').split(': ')[1],
                 # + 1 because we want to round up the day which already has begun
-                'difference_in_days': (component.get('dtstart').dt.astimezone() - datetime.now().astimezone()).days + 1
+                'difference_in_days': (component.CAL_ENV('dtstart').dt.astimezone() - datetime.now().astimezone()).days + 1
             })
     erz_calendar.close()
 
