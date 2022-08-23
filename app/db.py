@@ -5,7 +5,7 @@ import os
 
 from cryptography.fernet import Fernet
 
-from app.root_path import ROOT
+from root_path import ROOT
 
 DATABASE_FILE_NAME = os.path.join(ROOT, os.environ.get('DATABASE_FILE_NAME'))
 DB_SECRET = os.environ.get('DB_SECRET')

@@ -2,7 +2,7 @@ import os
 import base64
 import json
 
-from app.root_path import ROOT
+from root_path import ROOT
 
 ACCESS_TOKEN_URL = 'https://api.srgssr.ch/oauth/v1/accesstoken?grant_type=client_credentials'
 FORECAST_URL = 'https://api.srgssr.ch/srf-meteo/forecast/47.3868,8.4846'
