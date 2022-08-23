@@ -78,6 +78,11 @@ Register the path to the calendar file as follows: `data/calendar.ics`
 docker run -d --env-file ./prod.env --name eink-backend -v /host/custom/dir/e-ink-backend/data:/app/data -p 9000:80 eink-backend-image
 ```
 
+alternatively the required environment variables can be set one by one:
+```
+docker run -d --env DATABASE_FILE_NAME='data/birthdays.db' --env CALENDAR_FILE_NAME='data/calendar.ics' --name eink-backend -v /host/custom/dir/e-ink-backend/data:/app/data -p 9000:80 eink-backend-image
+```
+
 ### Alternatively use docker-compose
 
 Instead of the run command method above, a docker compose file can be used to start the service.
