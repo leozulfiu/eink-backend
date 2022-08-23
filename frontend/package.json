@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && rm -rf ../app/static && mkdir -p ../app/static && mv build/* ../app/static && rm -rf build"
+    "build": "react-scripts build"
   },
   "proxy": "http://127.0.0.1:9000",
   "browserslist": {
