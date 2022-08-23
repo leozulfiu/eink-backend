@@ -17,7 +17,7 @@ app = FastAPI()
 
 CAL_ENV = os.environ.get('CALENDAR_FILE_NAME')
 if not CAL_ENV:
-    sys.exit('CALENDAR_FILE_NAME was not set!')
+    sys.exit('env variable CALENDAR_FILE_NAME was not set!')
 CALENDAR_FILE_NAME = os.path.join(ROOT, CAL_ENV)
 
 
