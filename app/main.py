@@ -29,6 +29,7 @@ async def dashboard():
         birthdays = read_upcoming_birthdays()
 
         response = {
+            'time': datetime.now().astimezone().strftime('%H:%M:%S'),
             'date': datetime.now().astimezone().strftime('%a, %d.%m.%Y'),
             'forecast': forecast,
             'garbage_collections': garbage_collections,
