@@ -92,6 +92,7 @@ def read_upcoming_birthdays():
         # Replace 'birthdate' Key by 'date' Key
         date = entry.pop('birthdate')
         entry['date'] = str(date.day) + '.' + str(date.month) + '.'
+        entry['name'] = entry['name'].split(" ")[0] + ' ' + entry['name'].split(" ")[1][0] + '.'
     return upcoming[:3]
 
 
