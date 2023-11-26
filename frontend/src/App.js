@@ -106,7 +106,15 @@ function App() {
     const targetDate = new Date(isoFormatDate);
     const currentDate = new Date();
 
-    if (targetDate.getDate() === currentDate.getDate() && targetDate.getMonth() === currentDate.getMonth()) {
+    targetDate.setFullYear(currentDate.getFullYear());
+    if (targetDate < currentDate) {
+      targetDate.setFullYear(currentDate.getFullYear() + 1);
+    }
+
+    if (
+      targetDate.getDate() === currentDate.getDate() &&
+      targetDate.getMonth() === currentDate.getMonth()
+    ) {
       return "today";
     }
 
@@ -114,15 +122,25 @@ function App() {
     let dayDifference = targetDate.getDate() - currentDate.getDate();
 
     if (dayDifference < 0) {
-      monthDifference -= 1;
-      dayDifference += 30;
+      monthDifference--;
+      const prevMonthLastDay = new Date(
+        targetDate.getFullYear(),
+        targetDate.getMonth(),
+        0
+      ).getDate();
+      dayDifference += prevMonthLastDay;
     }
+
     if (monthDifference < 0) {
+      // Borrow months from the next year
       monthDifference += 12;
     }
 
-    const monthsText = `in ${monthDifference} month${monthDifference > 0 ? "s" : ""} and`;
-    return `${monthDifference > 0 ? monthsText : "in"} ${dayDifference} day${dayDifference > 1 ? "s" : ""}`;
+    const monthsText =
+      monthDifference > 0
+        ? `in ${monthDifference} month${monthDifference !== 1 ? "s" : ""} and `
+        : "in ";
+    return `${monthsText}${dayDifference} day${dayDifference !== 1 ? "s" : ""}`;
   };
 
   const getNextBirthday = (date) => {
