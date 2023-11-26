@@ -2,13 +2,14 @@ import os
 import sys
 from datetime import datetime
 
-import httpx as httpx
 import uvicorn
+from fastapi_utilities import repeat_at
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from icalendar import Calendar
 
+from matrix_messaging_api import send_chat_message
 from db import read_birthdays, enter_birthdate, create_database_if_not_exists, delete_birthdate
 from root_path import ROOT
 from weather_api import fetch_forecast
@@ -23,20 +24,19 @@ CALENDAR_FILE_NAME = os.path.join(ROOT, CAL_ENV)
 
 @app.get('/api/dashboard')
 async def dashboard():
-    with httpx.Client() as client:
-        forecast = parse_forecast(await fetch_forecast(client))
-        garbage_collections = read_garbage_collections()
-        birthdays = read_upcoming_birthdays()
+    forecast = parse_forecast(await fetch_forecast())
+    garbage_collections = read_garbage_collections()
+    birthdays = read_upcoming_birthdays()
 
-        response = {
-            'time': datetime.now().astimezone().strftime('%H:%M:%S'),
-            'date': datetime.now().astimezone().strftime('%a, %d.%m.%Y'),
-            'forecast': forecast,
-            'garbage_collections': garbage_collections,
-            'birthdays': birthdays,
-        }
+    response = {
+        'time': datetime.now().astimezone().strftime('%H:%M:%S'),
+        'date': datetime.now().astimezone().strftime('%a, %d.%m.%Y'),
+        'forecast': forecast,
+        'garbage_collections': garbage_collections,
+        'birthdays': birthdays,
+    }
 
-        return response
+    return response
 
 
 def parse_forecast(forecast_response):
@@ -96,6 +96,15 @@ def read_upcoming_birthdays():
     return upcoming[:3]
 
 
+def read_todays_birthdays():
+    birthdays = read_birthdays()
+
+    current_month = datetime.now().month
+    current_day = datetime.now().day
+    todays_birthdays = [bday for bday in birthdays if bday['birthdate'].month == current_month and bday['birthdate'].day == current_day]
+    return todays_birthdays
+
+
 @app.get('/api/birthdays')
 async def get_birthdays():
     return read_birthdays()
@@ -139,6 +148,21 @@ async def parse_birthdate(birthdate):
 @app.delete('/api/birthdays/{item_id}')
 async def delete_birthday(item_id):
     delete_birthdate(item_id)
+
+
+@app.on_event("startup")
+@repeat_at(cron="0 7 * * *")
+@app.get('/api/cron')
+async def notification_morning():
+    birtdays = read_todays_birthdays()
+    await send_chat_message(birtdays)
+
+
+@app.on_event("startup")
+@repeat_at(cron="0 18 * * *")
+async def notification_evening():
+    birtdays = read_todays_birthdays()
+    await send_chat_message(birtdays)
 
 
 @app.on_event("startup")

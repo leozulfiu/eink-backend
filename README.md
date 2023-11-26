@@ -46,6 +46,8 @@ SRGSSR_CLIENT_SECRET='client_secret'
 #MOCK_FILE_NAME='data/mock_filename.json'
 DATABASE_FILE_NAME='data/birthdays.db'
 CALENDAR_FILE_NAME='data/calendar.ics'
+BOT_PASSWORD: 'some_secret'
+ROOM_ID: 'some_room_id'
 DB_SECRET='12345678'
 ```
 The mock env variable can be completely removed if the real API should be used.

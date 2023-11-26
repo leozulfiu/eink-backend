@@ -1,6 +1,7 @@
 import os
 import base64
 import json
+import httpx as httpx
 
 from root_path import ROOT
 
@@ -14,16 +15,17 @@ env_mock = os.environ.get('MOCK_FILE_NAME', None)
 MOCK_FILE_NAME = os.path.join(ROOT, env_mock) if env_mock else None
 
 
-async def fetch_forecast(client):
-    if MOCK_FILE_NAME:
-        example_response = open(MOCK_FILE_NAME)
-        return json.load(example_response)['forecast']
-    else:
-        userpass = SRGSSR_CLIENT_ID + ':' + SRGSSR_CLIENT_SECRET
-        encoded_credentials = base64.b64encode(userpass.encode()).decode()
-        headers = {'Authorization': 'Basic ' + encoded_credentials}
-        token_response = client.get(ACCESS_TOKEN_URL, headers=headers).json()
-        access_token = token_response['access_token']
+async def fetch_forecast():
+    with httpx.Client() as client:
+        if MOCK_FILE_NAME:
+            example_response = open(MOCK_FILE_NAME)
+            return json.load(example_response)['forecast']
+        else:
+            userpass = SRGSSR_CLIENT_ID + ':' + SRGSSR_CLIENT_SECRET
+            encoded_credentials = base64.b64encode(userpass.encode()).decode()
+            headers = {'Authorization': 'Basic ' + encoded_credentials}
+            token_response = client.get(ACCESS_TOKEN_URL, headers=headers).json()
+            access_token = token_response['access_token']
 
-        headers = {'Authorization': 'Bearer ' + access_token}
-        return client.get(FORECAST_URL, headers=headers).json()['forecast']
+            headers = {'Authorization': 'Bearer ' + access_token}
+            return client.get(FORECAST_URL, headers=headers).json()['forecast']
