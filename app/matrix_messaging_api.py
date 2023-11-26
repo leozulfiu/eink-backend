@@ -14,6 +14,8 @@ ROOM_ID = os.environ.get('ROOM_ID', None)
 async def send_chat_message(todays_birthdays):
     if not BOT_USERNAME or not BOT_PASSWORD or not ROOM_ID:
         return
+    if len(todays_birthdays) == 0:
+        return
     with httpx.Client() as client:
         token_response = client.post(ACCESS_TOKEN_URL, json={
             "type": "m.login.password",
@@ -28,7 +30,7 @@ async def send_chat_message(todays_birthdays):
 
         send_response = client.put(SEND_URL.format(ROOM_ID), params=params, json={
             "msgtype": "m.text",
-            "body": "Happy birthday toooo:\n\n" + '\n'.join(['- ' + bday["name"] + get_random_happy_emoji() for bday in todays_birthdays])
+            "body": "Happy birthday toooo:\n\n" + '\n'.join(['- ' + bday["name"] + ' ' + get_random_happy_emoji() for bday in todays_birthdays])
         })
         print("Successfully send message, response code: " + str(send_response.status_code))
 
